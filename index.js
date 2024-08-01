@@ -37,7 +37,7 @@ app.use("/api/play-history", playHistoryRouter);
 
 
 app.get('/', function (req, res) {
-    res.json({ 'Xin chao, xem API phai khong' });
+    res.json({ message: 'Xin chao, xem API phai khong' });
 })
 
 
