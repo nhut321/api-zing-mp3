@@ -35,7 +35,6 @@ app.use("/api/list-music", listMusicRouter);
 app.use("/api/favorite", favoriteRouter);
 app.use("/api/play-history", playHistoryRouter);
 
- hihi
 app.get('/', function (req, res) {
     res.json({ message: 'Xin chao, xem API phai khong' });
 })
