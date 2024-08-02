@@ -35,9 +35,8 @@ app.use("/api/list-music", listMusicRouter);
 app.use("/api/favorite", favoriteRouter);
 app.use("/api/play-history", playHistoryRouter);
 
-
 app.get('/', function (req, res) {
-    res.json({ GitHub: "Xem API a` :))" });
+    res.json({ GitHub: "https://github.com/phuockaito/kaito-music.cf", Live_Demo: "https://kaito-music.vercel.app" });
 })
 
 
