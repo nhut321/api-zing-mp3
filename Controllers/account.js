@@ -37,11 +37,9 @@ module.exports = {
     REGISTER: async (req, res) => {
         try {
             const avatarDefault = [
-                "https://res.cloudinary.com/phuockaito/image/upload/v1627194964/user/1_oupk48.png",
-                "https://res.cloudinary.com/phuockaito/image/upload/v1627194964/user/2_dtmvm9.png",
-                "https://res.cloudinary.com/phuockaito/image/upload/v1627194964/user/3_ttwqrr.png",
-                "https://res.cloudinary.com/phuockaito/image/upload/v1627194964/user/4_fbupvc.png",
-                "https://res.cloudinary.com/phuockaito/image/upload/v1627194964/user/5_c2r91d.png",
+                "https://res.cloudinary.com/nhut-lin/image/upload/v1722586550/avatars/images_ovib6f.jpg",
+                "https://res.cloudinary.com/nhut-lin/image/upload/v1722586525/avatars/images_ajm7oo.jpg",
+                "https://res.cloudinary.com/nhut-lin/image/upload/v1722586466/avatars/images_zgq2x8.jpg"
             ];
             const random = Math.floor(Math.random() * avatarDefault.length);
             const create = moment().format();
