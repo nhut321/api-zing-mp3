@@ -36,7 +36,7 @@ app.use("/api/favorite", favoriteRouter);
 app.use("/api/play-history", playHistoryRouter);
 
 app.get('/', function (req, res) {
-    res.json({ GitHub: "https://github.com/phuockaito/kaito-music.cf", Live_Demo: "https://kaito-music.vercel.app" });
+    res.json({ GitHub: "Xin Chao, xem API phai khong" });
 })
 
 
