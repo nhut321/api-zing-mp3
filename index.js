@@ -1,24 +1,18 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
-const sever = require("http").createServer(app);
+const http = require("http");
+const server = http.createServer(app);
 const PORT = process.env.PORT || 8080;
 const cors = require("cors");
-
-app.use(cors());
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
-
 require("dotenv").config();
 require("./initDB")();
 
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
 const musicRouter = require("./Router/music");
 const searchRouter = require("./Router/search");
 const accountRouter = require("./Router/account");
@@ -35,11 +29,11 @@ app.use("/api/list-music", listMusicRouter);
 app.use("/api/favorite", favoriteRouter);
 app.use("/api/play-history", playHistoryRouter);
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.json({ GitHub: "Xin Chao, xem API phai khong" });
-})
+});
 
-
-sever.listen(PORT, () => {
-    console.log(`server started on http://localhost:${PORT}`);
+// Start Server
+server.listen(PORT, () => {
+    console.log(`Server started on http://localhost:${PORT}`);
 });
