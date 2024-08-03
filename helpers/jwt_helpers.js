@@ -34,7 +34,7 @@ module.exports = {
             JWT.verify(token, ACCESS_TOKEN_SECRET, (err, decoded) => {
                 if (err) {
                     console.log(err)
-                    const message = err.name === 'JsonWebTokenError' ? 'Unauthorized' : err.message
+                    const message = err.name === 'JsonWebTokenError' ? 'Chua Auth' : err.message
                     return next(creatError.Unauthorized(message))
                 }
                 req.id = decoded.id;

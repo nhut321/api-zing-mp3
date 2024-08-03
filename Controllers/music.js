@@ -55,10 +55,17 @@ function matchYoutubeUrl(url) {
 module.exports = {
     CREATE_MUSIC: async (req, res) => {
         try {
-            console.log(req.body)
+            // console.log(req.body)
             const create_music = moment().format();
+
+            //test
             const { id } = req;
+
+            //test
+            // const { id } = '66ac99e09466480009b130be'
+
             const music = JSON.parse(req.body.upload);
+            
             const src_music = req.files["src_music"][0];
             const image_music = req.files["image_music"][0];
             const account = await mongooseAccount.findById(id);

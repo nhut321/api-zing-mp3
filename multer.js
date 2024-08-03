@@ -25,5 +25,6 @@ module.exports = multer({
         } else {
             cb(new Error('File is not supported'), false);
         }
-    }
+    },
+    limits: { fileSize: 20 * 1024 * 1024 } // 20MB
 });
