@@ -33,6 +33,7 @@ module.exports = {
             const token = bearerToken[1];
             JWT.verify(token, ACCESS_TOKEN_SECRET, (err, decoded) => {
                 if (err) {
+                    console.log(err)
                     const message = err.name === 'JsonWebTokenError' ? 'Unauthorized' : err.message
                     return next(creatError.Unauthorized(message))
                 }
