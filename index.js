@@ -2,15 +2,27 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
+const socketIo = require("socket.io");
 const PORT = process.env.PORT || 8080;
 const cors = require("cors");
 require("dotenv").config();
 require("./initDB")();
 
+//io
+const io = socketIo(server, {
+  cors: {
+    origin: "http://localhost:3000", // Allow requests from this origin
+    methods: ["GET", "POST"],
+  },
+});
+
 // Middleware
 app.use(cors());
-app.use(express.json({ limit: '50mb'}));
-app.use(express.urlencoded({ limit: '50mb',  extended: true }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
+
+// Import và cấu hình Socket.IO
+require("./socket/socket")(io);
 
 // Routes
 const musicRouter = require("./Router/music");
@@ -20,6 +32,7 @@ const commentRouter = require("./Router/comment");
 const listMusicRouter = require("./Router/list-music");
 const favoriteRouter = require("./Router/favorite");
 const playHistoryRouter = require("./Router/play-history");
+const messageRouter = require('./Router/message')
 
 app.use("/api/music", musicRouter);
 app.use("/api/search", searchRouter);
@@ -28,12 +41,13 @@ app.use("/api/comment", commentRouter);
 app.use("/api/list-music", listMusicRouter);
 app.use("/api/favorite", favoriteRouter);
 app.use("/api/play-history", playHistoryRouter);
+app.use('/api/messages', messageRouter)
 
-app.get('/', (req, res) => {
-    res.json({ GitHub: "Xin Chao, xem API phai khong" });
+app.get("/", (req, res) => {
+  res.json({ GitHub: "Xin Chao, xem API phai khong" });
 });
 
 // Start Server
 server.listen(PORT, () => {
-    console.log(`Server started on http://localhost:${PORT}`);
+  console.log(`Server started on http://localhost:${PORT}`);
 });

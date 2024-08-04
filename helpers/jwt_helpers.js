@@ -25,7 +25,6 @@ module.exports = {
     authorizationToken: (req, res, next) => {
         try {
             if (!req.headers['authorization']) {
-                console.log('chua authen')
                 return next(creatError.Unauthorized())
             }
             const authHeader = req.headers['authorization'];
@@ -33,7 +32,6 @@ module.exports = {
             const token = bearerToken[1];
             JWT.verify(token, ACCESS_TOKEN_SECRET, (err, decoded) => {
                 if (err) {
-                    console.log(err)
                     const message = err.name === 'JsonWebTokenError' ? 'Chua Auth' : err.message
                     return next(creatError.Unauthorized(message))
                 }
