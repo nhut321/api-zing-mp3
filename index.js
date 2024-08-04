@@ -10,11 +10,12 @@ require("./initDB")();
 
 //io
 const io = socketIo(server, {
-  cors: {
-    origin: ["http://localhost:3000", 'https://gianglethuylinh.site'], // Allow requests from this origin
-    methods: ["GET", "POST"],
-  },
-});
+    cors: {
+      origin: ["https://gianglethuylinh.site", "http://localhost:3000"],
+      methods: ["GET", "POST"],
+      credentials: true
+    }
+  });
 
 // Middleware
 app.use(cors());
