@@ -11,6 +11,7 @@ module.exports = (io) => {
     io.emit('updateOnlineUsers', onlineUsers.size);
     
         socket.on('sendMessage', async (message) => {
+            console.log(message)
             const newMessage = new Message({text: message.text, user: message.user});
             await newMessage.save()
             // newMessage.save()
