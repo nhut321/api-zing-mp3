@@ -11,7 +11,7 @@ require("./initDB")();
 //io
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:3000", // Allow requests from this origin
+    origin: ["http://localhost:3000", 'https://gianglethuylinh.site'], // Allow requests from this origin
     methods: ["GET", "POST"],
   },
 });
