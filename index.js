@@ -11,7 +11,7 @@ require("./initDB")();
 //io
 const io = socketIo(server, {
     cors: {
-      origin: ["https://gianglethuylinh.site", "http://localhost:3000", "http://127.0.0.1:5500"],
+      origin: ["https://gianglethuylinh.site", "http://localhost:3000", "http://127.0.0.1:5500", 'https://nhaccuatoy.site'],
       methods: ["GET", "POST"],
       credentials: true
     }
@@ -19,7 +19,7 @@ const io = socketIo(server, {
 
 // Middleware
 app.use(cors({
-    origin: ["https://gianglethuylinh.site", "http://localhost:3000", "http://127.0.0.1:5500"],
+    origin: ["https://gianglethuylinh.site", "http://localhost:3000", "http://127.0.0.1:5500", 'https://nhaccuatoy.site'],
     methods: ["GET", "POST"],
     credentials: true
   }));
