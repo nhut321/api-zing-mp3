@@ -118,6 +118,7 @@ module.exports = {
           // const result = new_music
 
           res.json({
+            ok: true,
             data: result,
           });
         } else {
