@@ -62,6 +62,7 @@ app.use("/api/messages", messageRouter);
 
 app.get("/", (req, res) => {
   res.json({
+    title: "Tâm sự của Nhựt: ",
     Message:
       "Tôi biết cậu sẽ không bao giờ đọc được cái này đâu, nhưng tôi muốn nói là: 'Lin ơi, anh yêu em!!! ❤️❤️❤️'",
   });
