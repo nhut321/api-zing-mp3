@@ -50,6 +50,7 @@ const listMusicRouter = require("./Router/list-music");
 const favoriteRouter = require("./Router/favorite");
 const playHistoryRouter = require("./Router/play-history");
 const messageRouter = require("./Router/message");
+const roomRouter = require('./Router/room')
 
 app.use("/api/music", musicRouter);
 app.use("/api/search", searchRouter);
@@ -59,6 +60,7 @@ app.use("/api/list-music", listMusicRouter);
 app.use("/api/favorite", favoriteRouter);
 app.use("/api/play-history", playHistoryRouter);
 app.use("/api/messages", messageRouter);
+app.use('/api/rooms', roomRouter)
 
 app.get("/", (req, res) => {
   res.json({
