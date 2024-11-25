@@ -12,6 +12,7 @@ require("./initDB")();
 const io = socketIo(server, {
   cors: {
     origin: [
+      "phamletienhung.site",
       "https://gianglethuylinh.site",
       "http://localhost:3000",
       "http://127.0.0.1:5500",
