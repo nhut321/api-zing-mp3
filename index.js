@@ -64,7 +64,7 @@ app.use("/api/play-history", playHistoryRouter);
 app.use("/api/messages", messageRouter);
 app.use('/api/rooms', roomRouter)
 
-app.get("/", (req, res) => {
+app.get("/status", (req, res) => {
   res.json({
     title: "Tâm sự của Nhựt: ",
     Message:
