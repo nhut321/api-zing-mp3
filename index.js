@@ -9,7 +9,7 @@ require("dotenv").config();
 require("./initDB")();
 
 //io
-const io = socketIo(server, {
+//const io = socketIo(server, {
   cors: {
     origin: [
       "https://www.phamletienhung.site",
@@ -21,7 +21,7 @@ const io = socketIo(server, {
     methods: ["GET", "POST"],
     credentials: true,
   },
-});
+//});
 
 // Middleware
 app.use(
